@@ -14,7 +14,7 @@ Feature: Login
   Scenario: Invalid Login
     Given I have browser with openemr page
     When I enter username as 'john'
-    And I enter password as 'john123'
+    And I enter password as 'john12345'
     And I select language as 'English (Indian)'
     And I click on login
     Then I should not get access portal with error as 'Invalid username or password'
