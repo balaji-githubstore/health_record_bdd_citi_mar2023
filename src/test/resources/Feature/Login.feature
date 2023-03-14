@@ -4,9 +4,11 @@ Feature: Login
   As a user
   I want to access the OpenEMR portal
 
+  Background: 
+    Given I have browser with openemr page
+
   @valid @high
   Scenario Outline: Valid Login
-    Given I have browser with openemr page
     When I enter username as '<username>'
     And I enter password as '<password>'
     And I select language as '<language>'
@@ -21,11 +23,8 @@ Feature: Login
 
   @invalid
   Scenario: Invalid Login
-    Given I have browser with openemr page
     When I enter username as 'john'
     And I enter password as 'john1234'
     And I select language as 'English (Indian)'
     And I click on login
     Then I should not get access portal with error as 'Invalid username or password'
-
-    

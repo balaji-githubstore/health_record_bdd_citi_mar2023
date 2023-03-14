@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		,publish = false
 		,plugin = {"html:target/cucumber-report.html","pretty"}
 		,tags = "@login"
-		//,dryRun = true
+		,dryRun = false
 		)
 public class RunnerTest extends AbstractTestNGCucumberTests {
 
