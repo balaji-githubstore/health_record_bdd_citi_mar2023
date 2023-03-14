@@ -8,6 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		,glue = {"com.citi.steps"}
 		,publish = false
 		,plugin = {"html:target/cucumber-report.html","pretty"}
+		,tags = "@invalid"
 		)
 public class RunnerTest extends AbstractTestNGCucumberTests {
 

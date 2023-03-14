@@ -1,8 +1,10 @@
+@login
 Feature: Login
   In order to manage the health records 
   As a user
   I want to access the OpenEMR portal
 
+  @valid @high
   Scenario: Valid Login
     Given I have browser with openemr page
     When I enter username as 'admin'
@@ -11,6 +13,7 @@ Feature: Login
     And I click on login
     Then I should get access to portal with title as 'OpenEMR'
 
+  @invalid
   Scenario: Invalid Login
     Given I have browser with openemr page
     When I enter username as 'john'
