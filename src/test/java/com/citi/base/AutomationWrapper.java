@@ -12,7 +12,11 @@ public class AutomationWrapper {
 	@After
 	public void endScenario()
 	{
-		AutomationWrapper.driver.quit();
+		if(AutomationWrapper.driver !=null)
+		{
+			AutomationWrapper.driver.quit();
+		}
+		
 	}
 
 }
