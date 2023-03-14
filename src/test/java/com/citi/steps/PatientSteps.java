@@ -36,6 +36,8 @@ public class PatientSteps {
 	    System.out.println(list.get(0).get("lastname"));
 	    System.out.println(list.get(0).get("gender"));
 	    System.out.println(list.get(0).get("dob"));
+	    
+	    AutomationWrapper.driver.findElement(By.id("")).sendKeys(list.get(0).get("firstname"));
 	}
 	
 	@When("I click on create new patient")
