@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		,glue = {"com.citi.steps","com.citi.base"}
 		,publish = false
 		,plugin = {"html:target/cucumber-report.html","pretty"}
-		,tags = "@invalid"
+		,tags = "@login"
 		//,dryRun = true
 		)
 public class RunnerTest extends AbstractTestNGCucumberTests {
