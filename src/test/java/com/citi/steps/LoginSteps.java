@@ -12,28 +12,35 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginSteps {
+public class LoginSteps  {
+	
+	private AutomationWrapper wrapper;
+	
+	public LoginSteps(AutomationWrapper wrapper)
+	{
+		this.wrapper=wrapper;
+	}
 	
 	@Given("I have browser with openemr page")
 	public void i_have_browser_with_openemr_page() 
 	{
-		AutomationWrapper.driver=new ChromeDriver();
-		AutomationWrapper.driver.manage().window().maximize();
-		AutomationWrapper.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		wrapper.driver=new ChromeDriver();
+		wrapper.driver.manage().window().maximize();
+		wrapper.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	   
-		AutomationWrapper.driver.get("https://demo.openemr.io/b/openemr");
+		wrapper.driver.get("https://demo.openemr.io/b/openemr");
 	}
 	
 	@When("I enter username as {string}")
 	public void i_enter_username_as(String username) 
 	{
-		AutomationWrapper.driver.findElement(By.id("authUser")).sendKeys(username);
+		wrapper.driver.findElement(By.id("authUser")).sendKeys(username);
 	}
 	
 	@When("I enter password as {string}")
 	public void i_enter_password_as(String password) 
 	{
-		AutomationWrapper.driver.findElement(By.cssSelector("#clearPass")).sendKeys(password);
+		wrapper.driver.findElement(By.cssSelector("#clearPass")).sendKeys(password);
 	}
 	
 	@When("I select language as {string}")
@@ -44,19 +51,19 @@ public class LoginSteps {
 	
 	@When("I click on login")
 	public void i_click_on_login() {
-		AutomationWrapper.driver.findElement(By.id("login-button")).click();
+		wrapper.driver.findElement(By.id("login-button")).click();
 	}
 	
 	@Then("I should get access to portal with title as {string}")
 	public void i_should_get_access_to_portal_with_title_as(String expectedTitle) { 
-		String actualTitle=AutomationWrapper.driver.getTitle();
+		String actualTitle=wrapper.driver.getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle);
 	}
 
 	@Then("I should not get access portal with error as {string}")
 	public void i_should_not_get_access_portal_with_error_as(String expectedError) 
 	{
-		String actualError=AutomationWrapper.driver.findElement(By.xpath("//div[contains(text(),'Invalid')]")).getText();
+		String actualError=wrapper.driver.findElement(By.xpath("//div[contains(text(),'Invalid')]")).getText();
 		Assert.assertTrue(actualError.contains(expectedError)); //expect true
 	}
 

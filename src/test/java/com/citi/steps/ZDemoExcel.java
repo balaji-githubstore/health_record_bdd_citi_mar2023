@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import com.citi.base.AutomationWrapper;
 import com.citi.utilities.DBUtils;
 import com.citi.utilities.ExcelUtils;
 
@@ -18,6 +19,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ZDemoExcel {
+	
+	private AutomationWrapper wrapper;
+	
+	public ZDemoExcel(AutomationWrapper wrapper)
+	{
+		this.wrapper=wrapper;
+	}
 
 	@When("I fill the record")
 	public void i_fill_the_record(DataTable dataTable) {

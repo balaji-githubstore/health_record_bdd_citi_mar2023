@@ -16,15 +16,22 @@ import io.cucumber.java.en.When;
 public class PatientSteps {
 	
 	private static DataTable dtMain=null;
+	
+	private AutomationWrapper wrapper;
+	
+	public PatientSteps(AutomationWrapper wrapper)
+	{
+		this.wrapper=wrapper;
+	}
 
 	@When("I click on patient menu")
 	public void i_click_on_patient_menu() {
-		AutomationWrapper.driver.findElement(By.xpath("//div[text()='Patient']")).click();
+		wrapper.driver.findElement(By.xpath("//div[text()='Patient']")).click();
 	}
 
 	@When("I click on new-search menu")
 	public void i_click_on_new_search_menu() {
-		AutomationWrapper.driver.findElement(By.xpath("//div[text()='New/Search']")).click();
+		wrapper.driver.findElement(By.xpath("//div[text()='New/Search']")).click();
 	}
 
 	@When("I fill the patient record who")
@@ -40,31 +47,31 @@ public class PatientSteps {
 		System.out.println(list.get(0).get("gender"));
 		System.out.println(list.get(0).get("dob"));
 
-		AutomationWrapper.driver.switchTo()
-				.frame(AutomationWrapper.driver.findElement(By.xpath("//iframe[@name='pat']")));
+		wrapper.driver.switchTo()
+				.frame(wrapper.driver.findElement(By.xpath("//iframe[@name='pat']")));
 
-		AutomationWrapper.driver.findElement(By.id("form_fname")).sendKeys(list.get(0).get("firstname"));
-		AutomationWrapper.driver.findElement(By.id("form_lname")).sendKeys(list.get(0).get("lastname"));
+		wrapper.driver.findElement(By.id("form_fname")).sendKeys(list.get(0).get("firstname"));
+		wrapper.driver.findElement(By.id("form_lname")).sendKeys(list.get(0).get("lastname"));
 
-		Select selectGender = new Select(AutomationWrapper.driver.findElement(By.id("form_sex")));
+		Select selectGender = new Select(wrapper.driver.findElement(By.id("form_sex")));
 		selectGender.selectByVisibleText(list.get(0).get("gender"));
 
-		AutomationWrapper.driver.findElement(By.id("form_DOB")).sendKeys(list.get(0).get("dob"));
+		wrapper.driver.findElement(By.id("form_DOB")).sendKeys(list.get(0).get("dob"));
 	}
 
 	@When("I click on create new patient")
 	public void i_click_on_create_new_patient() {
-		AutomationWrapper.driver.findElement(By.id("create")).click();
-		AutomationWrapper.driver.switchTo().defaultContent();
+		wrapper.driver.findElement(By.id("create")).click();
+		wrapper.driver.switchTo().defaultContent();
 
 	}
 
 	@When("I click on confirm create new patient")
 	public void i_click_on_confirm_create_new_patient() {
-		AutomationWrapper.driver.switchTo()
-				.frame(AutomationWrapper.driver.findElement(By.xpath("//iframe[@id='modalframe']")));
-		AutomationWrapper.driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
-		AutomationWrapper.driver.switchTo().defaultContent();
+		wrapper.driver.switchTo()
+				.frame(wrapper.driver.findElement(By.xpath("//iframe[@id='modalframe']")));
+		wrapper.driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
+		wrapper.driver.switchTo().defaultContent();
 	}
 
 	@When("I store the alert text and handle it")

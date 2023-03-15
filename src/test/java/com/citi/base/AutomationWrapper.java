@@ -6,15 +6,15 @@ import io.cucumber.java.After;
 
 public class AutomationWrapper {
 	
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	
 	@After
 	public void endScenario()
 	{
-		if(AutomationWrapper.driver !=null)
+		if(driver !=null)
 		{
-			AutomationWrapper.driver.quit();
+			driver.quit();
 		}
 		
 	}
