@@ -14,6 +14,8 @@ import io.cucumber.java.en.When;
 
 
 public class PatientSteps {
+	
+	private static DataTable dtMain=null;
 
 	@When("I click on patient menu")
 	public void i_click_on_patient_menu() {
@@ -27,6 +29,7 @@ public class PatientSteps {
 
 	@When("I fill the patient record who")
 	public void i_fill_the_patient_record(DataTable dataTable) {
+		dtMain=dataTable;
 		// sheet to List<Map<String, String>>
 		System.out.println(dataTable);
 
@@ -82,6 +85,7 @@ public class PatientSteps {
 	@Then("I should get the added patient name {string}")
 	public void i_should_get_the_added_patient_name(String string) {
 
+		System.out.println(dtMain);
 	}
 
 }

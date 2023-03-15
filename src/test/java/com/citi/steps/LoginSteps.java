@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Demo1Steps {
+public class LoginSteps {
 	
 	@Given("I have browser with openemr page")
 	public void i_have_browser_with_openemr_page() 

@@ -27,3 +27,5 @@ Feature: Patient
       | username | password | language         | fname | lname | gender | dob        | expected_alert_text | expected_patient_name |
       | admin    | pass     | English (Indian) | bala  | dina  | Male   | 2023-03-15 | Tobacco             | Bala Dina             |
       | admin    | pass     | English (Indian) | john  | wick  | Male   | 2023-03-14 | Tobacco             | John Wick             |
+
+     
