@@ -7,26 +7,37 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.citi.base.AutomationWrapper;
+import com.citi.pages.LoginPage;
+import com.citi.pages.MainPage;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-
 public class PatientSteps {
-	
-	private static DataTable dtMain=null;
-	
+
+	private static DataTable dtMain = null;
+
 	private AutomationWrapper wrapper;
-	
-	public PatientSteps(AutomationWrapper wrapper)
-	{
-		this.wrapper=wrapper;
+
+	private MainPage mainPage;
+
+	public PatientSteps(AutomationWrapper wrapper) {
+		this.wrapper = wrapper;
+
+		// initialize page objects
+		initPageObjects();
+	}
+
+	public void initPageObjects() {
+
+		mainPage = new MainPage(wrapper.driver);
 	}
 
 	@When("I click on patient menu")
 	public void i_click_on_patient_menu() {
-		wrapper.driver.findElement(By.xpath("//div[text()='Patient']")).click();
+//		wrapper.driver.findElement(By.xpath("//div[text()='Patient']")).click();
+		mainPage.clickOnPatientMenu();
 	}
 
 	@When("I click on new-search menu")
@@ -36,7 +47,7 @@ public class PatientSteps {
 
 	@When("I fill the patient record who")
 	public void i_fill_the_patient_record(DataTable dataTable) {
-		dtMain=dataTable;
+		dtMain = dataTable;
 		// sheet to List<Map<String, String>>
 		System.out.println(dataTable);
 
@@ -47,8 +58,7 @@ public class PatientSteps {
 		System.out.println(list.get(0).get("gender"));
 		System.out.println(list.get(0).get("dob"));
 
-		wrapper.driver.switchTo()
-				.frame(wrapper.driver.findElement(By.xpath("//iframe[@name='pat']")));
+		wrapper.driver.switchTo().frame(wrapper.driver.findElement(By.xpath("//iframe[@name='pat']")));
 
 		wrapper.driver.findElement(By.id("form_fname")).sendKeys(list.get(0).get("firstname"));
 		wrapper.driver.findElement(By.id("form_lname")).sendKeys(list.get(0).get("lastname"));
@@ -68,8 +78,7 @@ public class PatientSteps {
 
 	@When("I click on confirm create new patient")
 	public void i_click_on_confirm_create_new_patient() {
-		wrapper.driver.switchTo()
-				.frame(wrapper.driver.findElement(By.xpath("//iframe[@id='modalframe']")));
+		wrapper.driver.switchTo().frame(wrapper.driver.findElement(By.xpath("//iframe[@id='modalframe']")));
 		wrapper.driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
 		wrapper.driver.switchTo().defaultContent();
 	}
