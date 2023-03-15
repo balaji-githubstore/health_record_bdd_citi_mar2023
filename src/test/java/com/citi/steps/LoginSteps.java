@@ -11,7 +11,7 @@ import com.citi.base.AutomationWrapper;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+//no-page object model
 public class LoginSteps  {
 	
 	private AutomationWrapper wrapper;
