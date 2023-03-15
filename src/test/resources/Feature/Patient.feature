@@ -6,13 +6,13 @@ Feature: Patient
 
   @addpatient
   Scenario: Add Valid Patient
-    #Given I have browser with openemr page
-    #When I enter username as 'admin'
-    #And I enter password as 'pass'
-    #And I select language as 'English (Indian)'
-    #And I click on login
-    #And I click on patient menu
-    #And I click on new-search menu
+    Given I have browser with openemr page
+    When I enter username as 'admin'
+    And I enter password as 'pass'
+    And I select language as 'English (Indian)'
+    And I click on login
+    And I click on patient menu
+    And I click on new-search menu
     And I fill the patient record
       | firstname | lastname | gender | dob        |
       | John      | Wick     | Male   | 2023-03-14 |
