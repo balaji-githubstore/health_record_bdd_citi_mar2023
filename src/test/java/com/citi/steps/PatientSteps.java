@@ -12,6 +12,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
 public class PatientSteps {
 
 	@When("I click on patient menu")
@@ -24,7 +25,7 @@ public class PatientSteps {
 		AutomationWrapper.driver.findElement(By.xpath("//div[text()='New/Search']")).click();
 	}
 
-	@When("I fill the patient record")
+	@When("I fill the patient record who")
 	public void i_fill_the_patient_record(DataTable dataTable) {
 		// sheet to List<Map<String, String>>
 		System.out.println(dataTable);
