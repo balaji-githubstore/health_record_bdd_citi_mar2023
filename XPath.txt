@@ -1,0 +1,84 @@
+Xpath - 
+Absolute xpath - /html/body/div[3]/div[2]/div/div/div[2]/div/div/div[1]/form/div[1]/div[7]/span/span[3]/input
+
+Relative xpath - 
+
+//tagname[@attribute='']
+//tagname[text()='']
+
+trim and check text 
+//tagname[normalize-space()='']
+
+grouping of xpath- start at 1
+(//input[@name='sex'])[3]
+
+Contains
+//tagname[contains(@attribute,'')]
+//tagname[contains(text(),'')]
+//tagname[contains(normalize-space(),'')]
+
+
+And - or 
+//input[@type='file' and @id='__picker-input']
+
+parent-child 
+
+following-preceding 
+
+ancestor - descandant 
+
+following-sibiling 
+
+Example:- validate it chrome - ctrl+f
+//input[@value='-1']
+
+//label[text()='Custom']
+
+//button[@type='submit']
+//button[text()='Login']
+//button[normalize-space()='Login']
+
+//button[contains(@type,'sub')]
+
+//b[contains(text(),'phpMyAd')]
+//b[contains(normalize-space(),'phpMy')]
+
+//img[contains(@src,'go.gif')]
+
+
+//input[@type='file']
+
+
+//input[contains(@id,'UserFirst')]
+
+
+//tagname[contains(@src,'new.php')]
+
+CSS selector 
+#id
+.classname
+tagname[attribute='']
+[attribute='']
+
+Example::
+#clearPass
+input[name='clearPass']
+[name='clearPass']
+
+-------------------
+
+
+kim,kim123
+saul,saul123
+john,john123
+
+{{kim,kim123},{saul,saul123},{john,john123}}
+
+--------
+
+accountant, accountant, OpenEMR
+physician,physician,OpenEMR
+
+"C:\demo_pdf.pdf"
+
+https://github.com/charutkadam/bdd_framework.git
